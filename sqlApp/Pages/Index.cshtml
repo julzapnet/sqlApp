@@ -3,13 +3,13 @@
 @{
     ViewData["Title"] = "List of Products";
 }
-if(Model.IsBeta)
+@if(Model.IsBeta)
 {
 <h1 class="display-4">This is the New list of Beta Products</h1>
 }
 <div class="text-center">
     <h1 class="display-4">This is the New list of Products</h1>
-    if(Model.IsBeta)
+    @if(Model.IsBeta)
     {
     <h1 class="display-4">This is the New list of Beta Products</h1>
     }
