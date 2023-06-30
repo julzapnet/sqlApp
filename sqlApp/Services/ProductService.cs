@@ -6,8 +6,8 @@ namespace sqlApp.Services
 {
     public class ProductService : IProductService
     {
-        private IConfiguration _configuration;
-        private IFeatureManager _featureManager;
+        private readonly IConfiguration _configuration;
+        private readonly IFeatureManager _featureManager;
         public ProductService(IConfiguration configuration,IFeatureManager featureManager)
         {
             _configuration = configuration;
