@@ -1,4 +1,5 @@
 ﻿using System.Data.SqlClient;
+using Microsoft.FeatureManagement;
 using sqlApp.Models;
 
 namespace sqlApp.Services
@@ -6,9 +7,22 @@ namespace sqlApp.Services
     public class ProductService : IProductService
     {
         private IConfiguration _configuration;
-        public ProductService(IConfiguration configuration)
+        private IFeatureManager _featureManager;
+        public ProductService(IConfiguration configuration,IFeatureManager featureManager)
         {
             _configuration = configuration;
+            _featureManager = featureManager;
+        }
+
+        public async Task<bool> IsBeta()
+        {
+            if(await _featureManager.IsEnabledAsync("beta") { 
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         private SqlConnection GetConnection()
