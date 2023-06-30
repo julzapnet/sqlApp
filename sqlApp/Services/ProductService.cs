@@ -16,7 +16,7 @@ namespace sqlApp.Services
 
         public async Task<bool> IsBeta()
         {
-            if(await _featureManager.IsEnabledAsync("beta") { 
+            if(await _featureManager.IsEnabledAsync("beta")) { 
                 return true;
             }
             else
